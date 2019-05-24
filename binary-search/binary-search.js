@@ -2,7 +2,25 @@
 
 // Complete this algo
 const binarySearch = (array, target) => {
-	
+	let rootIndex = Math.floor(array.length/2);
+	// if (array.length === 1 && target !== array[0]){
+	// 	return false;
+	// }
+	// else if (array.length === 1 && target === array[0]){
+	// 	return true;
+	// }
+
+	if (target === array[rootIndex]){
+		return true;
+	} else if (target < array[rootIndex]){
+		let newArr = array.splice(0, rootIndex);
+		return binarySearch(newArr, target);
+	} else if (target > array[rootIndex]){
+		let newArr = array.splice(rootIndex + 1);
+		return binarySearch(newArr, target);
+	} else {
+		return false;
+	}
 };
 
 /*
